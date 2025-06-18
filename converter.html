@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #6dd5ed, #2193b0);
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+        .converter {
+            background: linear-gradient(to bottom, #ff758c, #ff7eb3);
+            padding: 30px;
+            border-radius: 20px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+        }
+        .converter h2 {
+            color: black;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+        }
+        button {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        a {
+            color: blue;
+            text-decoration: none;
+            display: block;
+            margin-top: 20px;
+        }
+        .result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/convert" class="converter">
+        <h2>Currency Converter</h2>
+        <input type="text" name="amount" placeholder="Amount" required>
+        <input type="text" name="from_currency" placeholder="From Currency (e.g. USD)" required>
+        <input type="text" name="to_currency" placeholder="To Currency (e.g. INR)" required>
+        <button type="submit">Convert</button>
+
+        {% if result %}
+            <div class="result">{{ result }}</div>
+        {% endif %}
+
+        
+    </form>
+</body>
+</html>
